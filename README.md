@@ -339,3 +339,12 @@ python -m unittest discover tests
   - Returns empty list instead of crashing
 - ✅ Confirmed edge case tests pass successfully
 
+
+
+### 🔹 Add Streamlit Frontend**
+- ✅ Created `sweetshop_ui.py` using Streamlit
+- ✅ Features:
+  - Add sweet form (ID, name, category, price, quantity)
+  - View all sweets in a table
+- ✅ Integrated with service layer (no duplicate code)
+- ✅ Launched via: `streamlit run sweetshop_ui.py`
