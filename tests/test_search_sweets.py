@@ -37,3 +37,12 @@ class TestSearchSweets(unittest.TestCase):
         result = self.searcher.search_sweets(category="Milk-Based")
         self.assertEqual(len(result), 2)
         self.assertTrue(all(s.category == "Milk-Based" for s in result))
+
+    def test_search_by_name_case_insensitive(self):
+        """
+        Test that name search is case-insensitive.
+        'barfi' should match 'Barfi' in DB.
+        """
+        result = self.searcher.search_sweets(name="BaRfI")  # Mixed case
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0].name, "Barfi")
