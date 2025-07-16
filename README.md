@@ -318,3 +318,6 @@ python -m unittest discover tests
 - 🔴 Added test: `test_sort_by_quantity_descending()` in `test_sort_sweets.py`
 - 🔎 Purpose: Sort sweets from high to low stock quantity
 - ❌ Confirmed test fails if descending quantity sort is not supported yet
+- ✅ Implemented sorting by `quantity` in descending order
+- ✅ `sort_sweets()` handles both ascending and descending order generically
+- ✅ Confirmed result correctness with automated test
