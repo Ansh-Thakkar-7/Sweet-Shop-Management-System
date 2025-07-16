@@ -270,3 +270,7 @@ python -m unittest discover tests
 - ❌ Confirmed test fails before 
 - ✅ Enhanced `restock_sweet()` to support restocking by name (str)
 - ✅ Now works with either sweet ID or name input
+
+**Step 10: Validation – Invalid Sweet Identifier in Restock**
+- Added test: `test_restock_fails_with_invalid_identifier()`
+- Purpose: Ensure restocking fails if identifier is None, empty, float, list, or invalid type

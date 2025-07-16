@@ -61,3 +61,17 @@ class TestRestockSweet(unittest.TestCase):
         cursor = self.restocker.conn.execute("SELECT quantity FROM sweets WHERE name = ?", ("Ladoo",))
         quantity = cursor.fetchone()[0]
         self.assertEqual(quantity, 12)
+
+    def test_restock_fails_with_invalid_identifier(self):
+        """
+        Test that restocking fails with invalid sweet ID or name.
+        """
+
+        # Invalid types and values
+        self.assertFalse(self.restocker.restock_sweet(None, 5))         # None
+        self.assertFalse(self.restocker.restock_sweet("", 5))           # Empty string
+        self.assertFalse(self.restocker.restock_sweet("   ", 5))        # Spaces only
+        self.assertFalse(self.restocker.restock_sweet("123", 5))        # Stringified number
+        self.assertFalse(self.restocker.restock_sweet(12.5, 5))         # Float
+        self.assertFalse(self.restocker.restock_sweet([], 5))           # List
+        self.assertFalse(self.restocker.restock_sweet(-10, 5))          # Negative ID
