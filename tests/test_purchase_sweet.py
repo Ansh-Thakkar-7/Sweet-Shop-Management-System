@@ -33,3 +33,18 @@ class TestPurchaseSweet(unittest.TestCase):
         sweets = self.purchaser.conn.execute("SELECT quantity FROM sweets WHERE id = ?", (7001,))
         quantity = sweets.fetchone()[0]
         self.assertEqual(quantity, 7)  
+
+
+    def test_purchase_fails_if_not_enough_stock(self):
+        """
+        Test that purchase fails if requested quantity exceeds available stock.
+        Original quantity = 10, trying to purchase 15.
+        """
+        result = self.purchaser.purchase_sweet(7001, 15)  # Too much
+        self.assertFalse(result)
+
+        # Confirm quantity in DB is unchanged
+        sweets = self.purchaser.conn.execute("SELECT quantity FROM sweets WHERE id = ?", (7001,))
+        quantity = sweets.fetchone()[0]
+        self.assertEqual(quantity, 10)
+
