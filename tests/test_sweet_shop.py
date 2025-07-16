@@ -39,3 +39,12 @@ class TestSweetShop(unittest.TestCase):
         self.shop.add_sweet(sweet1)         
         result = self.shop.add_sweet(sweet2)
         self.assertFalse(result)
+
+    def test_add_sweet_with_negative_price(self):
+        """
+        Test that adding a sweet with negative price is not allowed.
+        Expected: add_sweet() should return False.
+        """
+        sweet = Sweet(id=3001, name="Bad Sweet", category="Candy", price=-10.0, quantity=5)
+        result = self.shop.add_sweet(sweet)
+        self.assertFalse(result)
