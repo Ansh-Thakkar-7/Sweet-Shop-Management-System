@@ -62,4 +62,13 @@ class TestPurchaseSweet(unittest.TestCase):
         # Valid type but sweet doesn't exist
         self.assertFalse(self.purchaser.purchase_sweet(9999, 2))  # Non-existent ID
 
+    def test_purchase_fails_with_invalid_quantity(self):
+        """
+        Test that purchase fails when quantity is not a positive integer.
+        """
+        self.assertFalse(self.purchaser.purchase_sweet(7001, None))
+        self.assertFalse(self.purchaser.purchase_sweet(7001, "two"))
+        self.assertFalse(self.purchaser.purchase_sweet(7001, 2.5))
+        self.assertFalse(self.purchaser.purchase_sweet(7001, -1))
+        self.assertFalse(self.purchaser.purchase_sweet(7001, 0))  # 0 is invalid
 

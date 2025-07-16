@@ -220,3 +220,10 @@ python -m unittest discover tests
 - ❌ Confirmed test fails before validation is implemented
 - ✅ Added validation in `purchase_sweet()` to ensure sweet_id is a positive integer
 - ✅ Confirmed test passes when ID is None, string, float, negative, or not found in DB
+
+
+**Step 4: Validation – Invalid Quantity Handling**
+- Added test: `test_purchase_fails_with_invalid_quantity()` in `tests/test_purchase_sweet.py`
+- Purpose: Ensure quantity must be a positive integer
+- ❌ Confirmed test fails before validation is implemented
+
