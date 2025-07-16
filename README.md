@@ -329,3 +329,8 @@ python -m unittest discover tests
 - ✅ Enabled sorting by `category` (A–Z or Z–A)
 - ✅ Used flexible query in `sort_sweets()` with dynamic ORDER BY field
 - ✅ All sorting options are now fully supported: name, price, quantity, category
+
+**Step 8: Sort Input Validation — Red Step**
+- 🔴 Added test: `test_sort_fails_with_invalid_field_or_order()` in `test_sort_sweets.py`
+- 🔎 Purpose: Ensure sort_sweets() handles bad input for field (`by`) or sort order (`order`)
+- ❌ Confirmed test fails before input validation is added

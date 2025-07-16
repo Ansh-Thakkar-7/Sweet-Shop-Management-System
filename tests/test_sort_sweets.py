@@ -85,3 +85,21 @@ class TestSortSweets(unittest.TestCase):
         result = self.sorter.sort_sweets(by="category", order="asc")
         categories = [sweet.category for sweet in result]
         self.assertEqual(categories, ["Milk-Based", "Milk-Based", "Nut-Based"])
+
+
+    def test_sort_fails_with_invalid_field_or_order(self):
+        """
+        Test that sort_sweets returns empty list on invalid 'by' or 'order' input.
+        """
+
+        # Invalid field (by)
+        self.assertEqual(self.sorter.sort_sweets(by="flavor"), [])
+        self.assertEqual(self.sorter.sort_sweets(by=123), [])
+        self.assertEqual(self.sorter.sort_sweets(by=None), [])
+        self.assertEqual(self.sorter.sort_sweets(by=True), [])
+
+        # Invalid order
+        self.assertEqual(self.sorter.sort_sweets(by="name", order="ascending"), [])
+        self.assertEqual(self.sorter.sort_sweets(by="name", order=""), [])
+        self.assertEqual(self.sorter.sort_sweets(by="name", order=None), [])
+        self.assertEqual(self.sorter.sort_sweets(by="name", order=12), [])
