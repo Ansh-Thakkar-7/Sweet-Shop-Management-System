@@ -247,3 +247,5 @@ python -m unittest discover tests
 - Added test: `test_restock_increases_quantity()` in `tests/test_restock_sweet.py`
 - Purpose: Ensure that quantity increases after restocking
 - ❌ Confirmed test fails before implementation
+- ✅ Implemented basic logic in `restock_sweet()` to increase quantity for valid sweet ID
+- ✅ Confirmed test passes for valid restock
