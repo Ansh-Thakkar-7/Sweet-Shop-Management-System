@@ -46,3 +46,15 @@ class TestSearchSweets(unittest.TestCase):
         result = self.searcher.search_sweets(name="BaRfI")  # Mixed case
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0].name, "Barfi")
+
+    def test_search_by_price_range(self):
+        """
+        Test that sweets can be filtered within a price range.
+        """
+        result = self.searcher.search_sweets(min_price=10.0, max_price=30.0)
+
+        self.assertEqual(len(result), 2)  # Should return Barfi (20), Gulab Jamun (30)
+
+        for sweet in result:
+            self.assertGreaterEqual(sweet.price, 10.0)
+            self.assertLessEqual(sweet.price, 30.0)
