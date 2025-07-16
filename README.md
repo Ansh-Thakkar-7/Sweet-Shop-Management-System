@@ -242,3 +242,8 @@ python -m unittest discover tests
 - ✅ Extended `purchase_sweet()` to support both int (ID) and str (Name)
 - ✅ Now users can purchase by name like: `purchase_sweet("Barfi", 3)`
 - ✅ Confirmed via test: `test_purchase_by_name_reduces_quantity()`
+
+**Step 6: Inventory – Restock Sweet**
+- Added test: `test_restock_increases_quantity()` in `tests/test_restock_sweet.py`
+- Purpose: Ensure that quantity increases after restocking
+- ❌ Confirmed test fails before implementation
