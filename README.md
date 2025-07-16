@@ -326,3 +326,6 @@ python -m unittest discover tests
 - 🔴 Added test: `test_sort_by_category_ascending()` in `test_sort_sweets.py`
 - 🔎 Purpose: Ensure sweets are sorted by category A-Z
 - ❌ Confirmed test fails before 'category' support is added
+- ✅ Enabled sorting by `category` (A–Z or Z–A)
+- ✅ Used flexible query in `sort_sweets()` with dynamic ORDER BY field
+- ✅ All sorting options are now fully supported: name, price, quantity, category
