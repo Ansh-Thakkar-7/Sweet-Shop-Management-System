@@ -196,3 +196,10 @@ python -m unittest discover tests
   - ✅ Partial price filter (min or max only)
   - ✅ Combined filters (name + category + price range)
 - ✅ Confirmed all filters work correctly and independently
+
+### 🔹Inventory 
+
+**Step 29: Inventory – Purchase Reduces Quantity**
+- Added test: `test_purchase_reduces_quantity()` in `tests/test_purchase_sweet.py`
+- Purpose: Ensure that when a valid purchase is made, quantity decreases correctly
+- ❌ Confirmed test fails before method is implemented
