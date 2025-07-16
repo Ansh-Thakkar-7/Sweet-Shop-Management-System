@@ -50,3 +50,9 @@ python -m unittest discover tests
 - ✅ Updated `add_sweet()` to validate non-empty name and category, and quantity > 0
 - ✅ Confirmed all invalid inputs are rejected and tests pass (TDD Green)
 
+
+**Step 7: Edge Case – Non-numeric Price or Quantity**
+- Added test: `test_add_sweet_with_non_numeric_price_or_quantity` in `tests/test_sweet_shop.py`
+- Purpose: Ensure sweet cannot be added if price or quantity is not a number
+- Behavior: `add_sweet()` should return `False` if price or quantity is non-numeric
+- Confirmed test fails before implementation
