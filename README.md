@@ -321,3 +321,8 @@ python -m unittest discover tests
 - ✅ Implemented sorting by `quantity` in descending order
 - ✅ `sort_sweets()` handles both ascending and descending order generically
 - ✅ Confirmed result correctness with automated test
+
+**Step 7: Sorting by Category — Red Step**
+- 🔴 Added test: `test_sort_by_category_ascending()` in `test_sort_sweets.py`
+- 🔎 Purpose: Ensure sweets are sorted by category A-Z
+- ❌ Confirmed test fails before 'category' support is added
