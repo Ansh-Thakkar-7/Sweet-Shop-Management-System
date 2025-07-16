@@ -19,7 +19,10 @@ class SweetShop:
         Adds a new sweet to the database.
         Returns True if insertion succeeds.
         """
-
+        if sweet.price < 0:
+            print(f"[add_sweet ERROR] Price cannot be negative: {sweet.price}")
+            return False
+        
         query = """
         INSERT INTO sweets (id, name, category, price, quantity)
         VALUES (?, ?, ?, ?, ?)
