@@ -302,4 +302,8 @@ python -m unittest discover tests
 - 🔴 Added test: `test_sort_by_price_descending()` in `test_sort_sweets.py`
 - 🔎 Purpose: Ensure sweets are sorted from high to low price
 - ❌ Confirmed test fails before logic handles `order="desc"` for price field
+- ✅ Implemented sorting by `price` in descending order
+- ✅ Reused flexible SQL logic in `sort_sweets()` with support for any valid field + order
+- ✅ Confirmed test passes: high-to-low price sorting works as expected
+
 
