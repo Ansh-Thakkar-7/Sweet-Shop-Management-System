@@ -106,3 +106,16 @@ class TestAddSweet(unittest.TestCase):
         )
         result = self.shop.add_sweet(sweet)
         self.assertTrue(result)
+
+
+def test_add_sweet_with_duplicate_name_and_category(self):
+    """
+    Test that adding a sweet with the same name and category (even with different ID) is not allowed.
+    """
+    sweet1 = Sweet(id=4101, name="Kaju Katli", category="Nut-Based", price=50.0, quantity=10)
+    sweet2 = Sweet(id=4102, name="Kaju Katli", category="Nut-Based", price=60.0, quantity=5)
+
+    self.service.add_sweet(sweet1)
+    result = self.service.add_sweet(sweet2)
+
+    self.assertFalse(result)

@@ -44,7 +44,13 @@ class AddSweetService:
             print(f"[add_sweet ERROR] Quantity must be greater than 0: {sweet.quantity}")
             return False
         
-            
+        check_query = """
+                            SELECT 1 FROM sweets WHERE name = ? AND category = ?
+                            """
+        cursor = self.conn.execute(check_query, (sweet.name.strip(), sweet.category.strip()))
+        if cursor.fetchone(): 
+            print(f"[add_sweet ERROR] Sweet with name '{sweet.name}' and category '{sweet.category}' already exists.")
+            return False
 
         
         
