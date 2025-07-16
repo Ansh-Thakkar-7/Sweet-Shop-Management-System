@@ -72,3 +72,38 @@ class TestSearchSweets(unittest.TestCase):
         self.assertEqual(result2, [])
         self.assertEqual(result3, [])
         self.assertEqual(result4, [])
+
+    def test_search_with_no_filters_returns_all(self):
+        """
+        Test that all sweets are returned when no filters are provided.
+        """
+        result = self.searcher.search_sweets()
+        self.assertEqual(len(result), 4)  # setUp added 4 sweets
+        names = sorted([s.name for s in result])
+        expected_names = sorted(["Barfi", "Gulab Jamun", "Candy Pop", "Dark Chocolate"])
+        self.assertEqual(names, expected_names)
+
+    def test_search_with_partial_price_filters(self):
+        """
+        Test that search works with only min_price or only max_price.
+        """
+        result_min = self.searcher.search_sweets(min_price=25)
+        self.assertTrue(all(s.price >= 25 for s in result_min))
+        
+        result_max = self.searcher.search_sweets(max_price=15)
+        self.assertTrue(all(s.price <= 15 for s in result_max))
+
+    def test_search_with_combined_filters(self):
+        """
+        Test search with name + category + price range combined.
+        Should match 'Gulab Jamun' (Milk-Based, 30.0).
+        """
+        result = self.searcher.search_sweets(
+            name="gulab",
+            category="Milk-Based",
+            min_price=20,
+            max_price=35
+        )
+
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0].name, "Gulab Jamun")
