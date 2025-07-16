@@ -274,3 +274,5 @@ python -m unittest discover tests
 **Step 10: Validation – Invalid Sweet Identifier in Restock**
 - Added test: `test_restock_fails_with_invalid_identifier()`
 - Purpose: Ensure restocking fails if identifier is None, empty, float, list, or invalid type
+- ✅ Added strict validation for sweet identifier in `restock_sweet()`
+- ✅ Restocking now fails if ID is negative or name is empty/numeric/invalid type
