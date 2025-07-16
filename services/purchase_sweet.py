@@ -21,12 +21,20 @@ class PurchaseSweetService:
         try:
             # Get sweet by ID
             if isinstance(sweet_id_or_name, int):
+                if sweet_id_or_name <= 0:
+                    print(f"[restock_sweet ERROR] Invalid sweet ID: {sweet_id_or_name}")
+                    return False
                 cursor = self.conn.execute("SELECT id, quantity FROM sweets WHERE id = ?", (sweet_id_or_name,))
-            # Get sweet by Name
-            elif isinstance(sweet_id_or_name, str) and sweet_id_or_name.strip():
-                cursor = self.conn.execute("SELECT id, quantity FROM sweets WHERE name = ?", (sweet_id_or_name.strip(),))
+
+            elif isinstance(sweet_id_or_name, str):
+                name = sweet_id_or_name.strip()
+                if not name or name.isnumeric():
+                    print(f"[restock_sweet ERROR] Invalid sweet name: {sweet_id_or_name}")
+                    return False
+                cursor = self.conn.execute("SELECT id, quantity FROM sweets WHERE name = ?", (name,))
+
             else:
-                print(f"[purchase_sweet ERROR] Invalid sweet identifier: {sweet_id_or_name}")
+                print(f"[restock_sweet ERROR] Unsupported identifier type: {type(sweet_id_or_name)}")
                 return False
 
             row = cursor.fetchone()
