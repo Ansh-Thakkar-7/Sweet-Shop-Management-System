@@ -310,3 +310,6 @@ python -m unittest discover tests
 - 🔴 Added test: `test_sort_by_quantity_ascending()` in `test_sort_sweets.py`
 - 🔎 Purpose: Sort sweets by available stock (from low to high)
 - ❌ Confirmed test fails if "quantity" not yet handled by `sort_sweets()`
+- ✅ Enabled sorting by `quantity` using `sort_sweets(by="quantity")`
+- ✅ Confirmed default ascending order works
+- ✅ Logic reuses flexible SQL query with safety checks on field and order
