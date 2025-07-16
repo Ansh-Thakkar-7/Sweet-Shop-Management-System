@@ -155,3 +155,14 @@ python -m unittest discover tests
 - Created test: `test_search_by_name()` in `tests/test_search_sweets.py`
 - Purpose: Allow users to search sweets by partial name match (case-insensitive)
 - ❌ Confirmed test fails before implementation
+- ✅ Implemented minimal `search_sweets()` logic to support name-based searching
+- ✅ Confirmed test passes by only filtering on lowercase name
+- ✅ Will expand support to category and price in next steps
+
+**Step 24: Filter – Search by Category**
+- Added test: `test_search_by_category()` in `tests/test_search_sweets.py`
+- Purpose: Allow users to filter sweets by exact category match
+- ❌ Confirmed test fails before adding category logic
+- ✅ Implemented category filter in `search_sweets()`
+- ✅ Allows searching by exact category
+- ✅ Confirmed test passes after update
