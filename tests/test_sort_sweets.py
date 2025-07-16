@@ -68,3 +68,11 @@ class TestSortSweets(unittest.TestCase):
         result = self.sorter.sort_sweets(by="quantity", order="asc")
         quantities = [sweet.quantity for sweet in result]
         self.assertEqual(quantities, [10, 15, 20])
+
+    def test_sort_by_quantity_descending(self):
+        """
+        Test that sweets are sorted by quantity in descending order (high to low).
+        """
+        result = self.sorter.sort_sweets(by="quantity", order="desc")
+        quantities = [sweet.quantity for sweet in result]
+        self.assertEqual(quantities, [20, 15, 10])
