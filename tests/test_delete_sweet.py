@@ -47,3 +47,17 @@ class TestDeleteSweet(unittest.TestCase):
                 result = self.deleter.delete_sweet(invalid_id)
                 self.assertFalse(result)
 
+    def test_delete_sweet_twice_should_return_false_second_time(self):
+        """
+        Test that deleting the same sweet twice returns True once and then False.
+        """
+        sweet = Sweet(id=3010, name="Jalebi", category="Nut-Based", price=15.0, quantity=10)
+        self.adder.add_sweet(sweet)
+
+        result1 = self.deleter.delete_sweet(3010)
+        result2 = self.deleter.delete_sweet(3010)
+
+        self.assertTrue(result1)   # First delete should succeed
+        self.assertFalse(result2)  # Second delete should fail (already gone)
+
+
