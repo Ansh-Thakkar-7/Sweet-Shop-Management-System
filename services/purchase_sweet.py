@@ -13,6 +13,10 @@ class PurchaseSweetService:
         Returns True if purchase is successful.
         """
 
+        if not isinstance(sweet_id, int) or sweet_id <= 0:
+            print(f"[purchase_sweet ERROR] Invalid sweet ID: {sweet_id}")
+            return False
+
         try:
             cursor = self.conn.execute("SELECT quantity FROM sweets WHERE id = ?", (sweet_id,))
             row = cursor.fetchone()

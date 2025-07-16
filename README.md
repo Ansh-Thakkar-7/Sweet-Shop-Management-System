@@ -218,3 +218,5 @@ python -m unittest discover tests
 - Added test: `test_purchase_fails_with_invalid_sweet_id()` in `tests/test_purchase_sweet.py`
 - Purpose: Ensure function rejects non-integer IDs or non-existent sweet IDs
 - ❌ Confirmed test fails before validation is implemented
+- ✅ Added validation in `purchase_sweet()` to ensure sweet_id is a positive integer
+- ✅ Confirmed test passes when ID is None, string, float, negative, or not found in DB
