@@ -82,7 +82,27 @@ python -m unittest discover tests
 - Follows modular service-based architecture for better maintainability
 
 ### 🔹 View All Sweets
-**Step 1: Feature – View All Sweets**
+**Step 1: Write Initial Failing Test**
 - Added test: `test_get_all_sweets_returns_list_of_sweets` in `tests/test_view_sweets.py`
 - Purpose: Ensure all added sweets are returned as a list of `Sweet` objects
 - Confirmed test fails before implementation
+- ✅ Implemented `get_all_sweets()` in `services/view_sweets.py`
+- ✅ Fetches all sweets from DB and returns as list of `Sweet` objects
+- ✅ Confirmed test passes
+
+**Step 2: Edge Case – Empty Table**
+- Added test: `test_get_all_sweets_empty_table` in `tests/test_view_sweets.py`
+- Purpose: Ensure `get_all_sweets()` returns an empty list when DB has no rows
+- ✅ Confirmed test passes
+
+**Step 3: Edge Case – Large Dataset Performance**
+- Added test: `test_get_all_sweets_large_dataset` in `tests/test_view_sweets.py`
+- Purpose: Ensure `get_all_sweets()` handles large datasets (1,000+ records) efficiently
+- Behavior: Should return correct count and object types without slowdown
+- ✅ Confirmed test passes
+
+### 🔹  Delete Sweet
+**Step 14:  Write Initial Failing Test**
+- Created test: `test_delete_existing_sweet()` in `tests/test_delete_sweet.py`
+- Purpose: Ensure a sweet can be removed by ID from the database
+- ✅ Confirmed test fails before implementation
