@@ -71,3 +71,15 @@ class TestDeleteSweet(unittest.TestCase):
         self.assertTrue(result)
 
 
+    def test_delete_sweet_by_name_invalid_or_not_found(self):
+        """
+        Test that delete_sweet_by_name returns False for:
+        - Non-existent name
+        - Invalid name types (None, int, float, empty string)
+        """
+        invalid_names = ["NotInDB", "", None, 123, 12.5]
+
+        for name in invalid_names:
+            with self.subTest(name=name):
+                result = self.deleter.delete_sweet_by_name(name)
+                self.assertFalse(result)

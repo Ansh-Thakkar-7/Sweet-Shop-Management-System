@@ -123,7 +123,7 @@ python -m unittest discover tests
 - ✅ Ensures unsafe types (None, str, float, negative) are rejected early
 - ✅ Confirmed test for invalid types now passes
 
-**Step 17: Edge Case – Double Deletion**
+**Step 4: Edge Case – Double Deletion**
 - Added test: `test_delete_sweet_twice_should_return_false_second_time()` in `tests/test_delete_sweet.py`
 - Purpose: Ensure deleting the same ID twice only succeeds once
 - ✅ Confirmed first delete returns True, second returns False
@@ -135,3 +135,8 @@ python -m unittest discover tests
 - ✅ Implemented `delete_sweet_by_name()` in `DeleteSweetService`
 - ✅ Supports deletion based on sweet name (used in admin/bulk operations)
 - ✅ Confirmed test passes for deleting sweet by name
+
+**Step 19: Edge Case – Invalid or Missing Name for delete_sweet_by_name**
+- Added test: `test_delete_sweet_by_name_invalid_or_not_found()` in `tests/test_delete_sweet.py`
+- Purpose: Ensure invalid name types or non-existent names return False without error
+- ✅ Confirmed test passes with proper validation and messaging
