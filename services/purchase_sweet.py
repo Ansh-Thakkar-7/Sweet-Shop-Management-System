@@ -22,6 +22,9 @@ class PurchaseSweetService:
                 return False
 
             current_quantity = row[0]
+            if current_quantity < quantity:
+                print(f"[purchase_sweet ERROR] Not enough stock. Available: {current_quantity}, Requested: {quantity}")
+                return False
 
             new_quantity = current_quantity - quantity
 

@@ -199,10 +199,18 @@ python -m unittest discover tests
 
 ### 🔹Inventory 
 
-**Step 29: Inventory – Purchase Reduces Quantity**
+**Step 1: Inventory – Purchase Reduces Quantity**
 - Added test: `test_purchase_reduces_quantity()` in `tests/test_purchase_sweet.py`
 - Purpose: Ensure that when a valid purchase is made, quantity decreases correctly
 - ❌ Confirmed test fails before method is implemented
 - ✅ Implemented `purchase_sweet(sweet_id, quantity)` in `PurchaseSweetService`
 - ✅ Reduces quantity of a sweet if stock is sufficient
 - ✅ Confirmed test passes for quantity reduction logic
+
+**Step 2: Validation – Prevent Over-Purchase**
+- Added test: `test_purchase_fails_if_not_enough_stock()` in `tests/test_purchase_sweet.py`
+- Purpose: Ensure that a user cannot purchase more than the stock available
+- ❌ Confirmed test fails as expected (no validation yet)
+- ✅ Implemented stock validation in `purchase_sweet()` to prevent over-purchasing
+- ✅ Test now passes if requested quantity > stock returns False and stock remains unchanged
+
