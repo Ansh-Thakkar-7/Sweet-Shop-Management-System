@@ -1,5 +1,5 @@
 import unittest
-from services.sweet_shop import sweetShop
+from services.sweet_shop import SweetShop
 from models.sweet import Sweet
 
 
@@ -17,8 +17,8 @@ class TestSweetShop(unittest.TestCase):
         This is the first test in the TDD cycle.
         Edge cases and validations will be tested in later test cases.
         """
-        
-        shop = sweetShop()
+
+        shop = SweetShop()
         sweet = Sweet(id=1001, name="Kaju Katli", category="Nut-Based", price=50.0, quantity=20)
         result = shop.add_sweet(sweet)
 
