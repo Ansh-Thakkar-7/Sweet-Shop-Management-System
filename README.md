@@ -106,3 +106,6 @@ python -m unittest discover tests
 - Created test: `test_delete_existing_sweet()` in `tests/test_delete_sweet.py`
 - Purpose: Ensure a sweet can be removed by ID from the database
 - ✅ Confirmed test fails before implementation
+- ✅ Implemented `delete_sweet(id)` in `services/delete_sweet.py`
+- ✅ Deletes a sweet from DB by ID and returns True/False
+- ✅ Confirmed test passes for existing sweet
