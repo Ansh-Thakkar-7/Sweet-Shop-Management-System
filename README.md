@@ -102,10 +102,15 @@ python -m unittest discover tests
 - ✅ Confirmed test passes
 
 ### 🔹  Delete Sweet
-**Step 14:  Write Initial Failing Test**
+**Step 1:  Write Initial Failing Test**
 - Created test: `test_delete_existing_sweet()` in `tests/test_delete_sweet.py`
 - Purpose: Ensure a sweet can be removed by ID from the database
 - ✅ Confirmed test fails before implementation
 - ✅ Implemented `delete_sweet(id)` in `services/delete_sweet.py`
 - ✅ Deletes a sweet from DB by ID and returns True/False
 - ✅ Confirmed test passes for existing sweet
+
+**Step 2: Edge Case – Delete Non-Existent Sweet**
+- Added test: `test_delete_non_existing_sweet()` in `tests/test_delete_sweet.py`
+- Purpose: Ensure deleting an ID that doesn’t exist returns False without error
+- ✅ Confirmed test passes

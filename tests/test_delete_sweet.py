@@ -27,3 +27,12 @@ class TestDeleteSweet(unittest.TestCase):
 
         result = self.deleter.delete_sweet(3001)
         self.assertTrue(result)
+
+
+    def test_delete_non_existing_sweet(self):
+        """
+        Test that trying to delete a non-existent sweet ID returns False.
+        """
+        result = self.deleter.delete_sweet(9999)  # ID that doesn't exist
+        self.assertFalse(result)
+
