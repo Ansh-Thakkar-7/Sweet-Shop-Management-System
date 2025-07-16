@@ -11,6 +11,10 @@ class RestockSweetService:
         Increases the quantity of a sweet in the database.
         """
 
+        if not isinstance(quantity, int) or quantity <= 0:
+            print(f"[restock_sweet ERROR] Invalid quantity: {quantity}")
+            return False
+
         # Step 1: Get current quantity
         cursor = self.conn.execute("SELECT quantity FROM sweets WHERE id = ?", (sweet_id,))
         row = cursor.fetchone()

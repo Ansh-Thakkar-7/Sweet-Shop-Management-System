@@ -254,3 +254,5 @@ python -m unittest discover tests
 - Added test: `test_restock_fails_with_invalid_quantity()`
 - Purpose: Prevent restocking with invalid quantity (None, 0, negative, string, float)
 - ❌ Confirmed test fails before validation
+- ✅ Added input validation to `restock_sweet()` to ensure quantity is a positive integer
+- ✅ Confirmed test passes when quantity is None, string, zero, float, or negative
