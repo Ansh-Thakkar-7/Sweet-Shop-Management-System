@@ -199,7 +199,7 @@ python -m unittest discover tests
 
 ### 🔹Inventory 
 
-**Step 1: Inventory – Purchase Reduces Quantity**
+**Step 1: Write Initial Failing Test**
 - Added test: `test_purchase_reduces_quantity()` in `tests/test_purchase_sweet.py`
 - Purpose: Ensure that when a valid purchase is made, quantity decreases correctly
 - ❌ Confirmed test fails before method is implemented
@@ -276,3 +276,9 @@ python -m unittest discover tests
 - Purpose: Ensure restocking fails if identifier is None, empty, float, list, or invalid type
 - ✅ Added strict validation for sweet identifier in `restock_sweet()`
 - ✅ Restocking now fails if ID is negative or name is empty/numeric/invalid type
+
+### 🔹sorting
+**Step 1: Write Initial Failing Test**
+- Added test: `test_sort_by_name_ascending()` in `test_sort_sweets.py`
+- Purpose: Sort sweets by name alphabetically (A-Z)
+- ❌ Confirmed test fails before implementing sorting logic
