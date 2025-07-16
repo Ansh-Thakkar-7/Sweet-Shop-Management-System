@@ -41,9 +41,5 @@ class Database:
         Closes the active database connection.
         Should be called when DB operations are complete to free resources.
         """
-        self.conn.close()
-
-if __name__ == "__main__":
-    db = Database()
-    print("Database and table created successfully.")
-    db.close_connection()
+        if self.conn:
+            self.conn.close()
