@@ -214,3 +214,7 @@ python -m unittest discover tests
 - ✅ Implemented stock validation in `purchase_sweet()` to prevent over-purchasing
 - ✅ Test now passes if requested quantity > stock returns False and stock remains unchanged
 
+**Step 3: Validation – Invalid sweet_id Handling**
+- Added test: `test_purchase_fails_with_invalid_sweet_id()` in `tests/test_purchase_sweet.py`
+- Purpose: Ensure function rejects non-integer IDs or non-existent sweet IDs
+- ❌ Confirmed test fails before validation is implemented

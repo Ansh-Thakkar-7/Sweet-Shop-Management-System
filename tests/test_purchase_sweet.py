@@ -48,3 +48,18 @@ class TestPurchaseSweet(unittest.TestCase):
         quantity = sweets.fetchone()[0]
         self.assertEqual(quantity, 10)
 
+
+    def test_purchase_fails_with_invalid_sweet_id(self):
+        """
+        Test that purchase fails if sweet_id is not an integer or doesn't exist in DB.
+        """
+        # Invalid ID types
+        self.assertFalse(self.purchaser.purchase_sweet(None, 2))
+        self.assertFalse(self.purchaser.purchase_sweet("abc", 2))
+        self.assertFalse(self.purchaser.purchase_sweet(12.5, 2))
+        self.assertFalse(self.purchaser.purchase_sweet(-10, 2))
+
+        # Valid type but sweet doesn't exist
+        self.assertFalse(self.purchaser.purchase_sweet(9999, 2))  # Non-existent ID
+
+
