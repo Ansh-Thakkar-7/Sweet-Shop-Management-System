@@ -80,3 +80,9 @@ python -m unittest discover tests
 - Moved add logic to `services/add_sweet.py` as `AddSweetService`
 - Moved add-related tests to `tests/test_add_sweet.py`
 - Follows modular service-based architecture for better maintainability
+
+### 🔹 View All Sweets
+**Step 1: Feature – View All Sweets**
+- Added test: `test_get_all_sweets_returns_list_of_sweets` in `tests/test_view_sweets.py`
+- Purpose: Ensure all added sweets are returned as a list of `Sweet` objects
+- Confirmed test fails before implementation
