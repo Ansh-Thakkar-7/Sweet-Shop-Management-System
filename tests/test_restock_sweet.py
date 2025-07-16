@@ -31,3 +31,13 @@ class TestRestockSweet(unittest.TestCase):
         cursor = self.restocker.conn.execute("SELECT quantity FROM sweets WHERE id = ?", (8001,))
         quantity = cursor.fetchone()[0]
         self.assertEqual(quantity, 15)  # 5 + 10
+
+    def test_restock_fails_with_invalid_quantity(self):
+        """
+        Test that restocking fails if quantity is not a positive integer.
+        """
+        self.assertFalse(self.restocker.restock_sweet(8001, None))
+        self.assertFalse(self.restocker.restock_sweet(8001, "ten"))
+        self.assertFalse(self.restocker.restock_sweet(8001, 0))
+        self.assertFalse(self.restocker.restock_sweet(8001, -5))
+        self.assertFalse(self.restocker.restock_sweet(8001, 2.5))

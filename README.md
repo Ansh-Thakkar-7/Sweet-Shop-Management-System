@@ -249,3 +249,8 @@ python -m unittest discover tests
 - ❌ Confirmed test fails before implementation
 - ✅ Implemented basic logic in `restock_sweet()` to increase quantity for valid sweet ID
 - ✅ Confirmed test passes for valid restock
+
+**Step 7: Validation – Invalid Quantity in Restock**
+- Added test: `test_restock_fails_with_invalid_quantity()`
+- Purpose: Prevent restocking with invalid quantity (None, 0, negative, string, float)
+- ❌ Confirmed test fails before validation
