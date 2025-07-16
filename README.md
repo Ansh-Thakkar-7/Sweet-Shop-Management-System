@@ -294,4 +294,9 @@ python -m unittest discover tests
 - 🔴 Added test: `test_sort_by_price_ascending()` in `test_sort_sweets.py`
 - 🔎 Purpose: Verify that sweets are sorted by price from low to high
 - ❌ Confirmed test fails before implementing support for the "price" field in `sort_sweets()`
+**Step 42: Support Sorting by Price**
+- ✅ Added test: `test_sort_by_price_ascending()`
+- ✅ Updated `sort_sweets()` to allow sorting by `price`
+- ✅ Query builds dynamically for any supported field + order
+
 
