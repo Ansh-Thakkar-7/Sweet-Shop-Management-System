@@ -74,6 +74,15 @@ python -m unittest discover tests
 - Behavior: `add_sweet()` should return True for valid sweet
 - ✅ Confirmed test passes
 
+**Step 10: Business Rule – Prevent Same Name + Category Combo**
+- Added test: `test_add_sweet_with_duplicate_name_and_category()` in `tests/test_add_sweet.py`
+- Purpose: Disallow adding sweets with the same name and category (even if ID is different)
+- ❌ Confirmed test fails before logic is added
+- ✅ Updated `add_sweet()` to reject sweets with the same name and category (even if ID is different)
+- ✅ Ensures clean data and avoids logical duplicates in inventory
+- ✅ Confirmed test passes for new business rule
+
+
 
 ## ✅ Refactor: Split Add Sweet Feature
 
@@ -140,3 +149,9 @@ python -m unittest discover tests
 - Added test: `test_delete_sweet_by_name_invalid_or_not_found()` in `tests/test_delete_sweet.py`
 - Purpose: Ensure invalid name types or non-existent names return False without error
 - ✅ Confirmed test passes with proper validation and messaging
+
+### 🔹 Search Sweets by Name
+**Step 22: Write Initial Failing Test**
+- Created test: `test_search_by_name()` in `tests/test_search_sweets.py`
+- Purpose: Allow users to search sweets by partial name match (case-insensitive)
+- ❌ Confirmed test fails before implementation
