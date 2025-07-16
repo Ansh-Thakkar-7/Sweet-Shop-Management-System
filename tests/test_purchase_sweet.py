@@ -85,3 +85,5 @@ class TestPurchaseSweet(unittest.TestCase):
         sweets = self.purchaser.conn.execute("SELECT quantity FROM sweets WHERE name = ?", ("Kalakand",))
         quantity = sweets.fetchone()[0]
         self.assertEqual(quantity, 8) 
+
+
