@@ -166,3 +166,27 @@ python -m unittest discover tests
 - ✅ Implemented category filter in `search_sweets()`
 - ✅ Allows searching by exact category
 - ✅ Confirmed test passes after update
+
+**Step 25: Improve – Case-Insensitive Name Search**
+- Added test: `test_search_by_name_case_insensitive()` in `tests/test_search_sweets.py`
+- Purpose: Ensure that search by name matches even if case is different (e.g., 'BaRfI' matches 'Barfi')
+- ❌ Confirmed test fails before using LOWER() in SQL
+- ✅ Refactored name filter to use `LOWER(name)` in SQL
+- ✅ Ensures case-insensitive matching for name search
+- ✅ Confirmed test passes for mixed-case input
+
+**Step 26: Filter – Search by Price Range**
+- Added test: `test_search_by_price_range()` in `tests/test_search_sweets.py`
+- Purpose: Ensure sweets can be filtered by min and max price
+- ❌ Confirmed test fails before price filter logic is implemented
+- ✅ Implemented price range filtering in `search_sweets()` using min_price and max_price
+- ✅ Ensures only sweets within specified price range are returned
+- ✅ Confirmed test passes for price filtering
+
+**Step 27: Validation – Handle Invalid Filter Types**
+- Added test: `test_invalid_search_inputs()` in `tests/test_search_sweets.py`
+- Purpose: Ensure invalid input types do not crash the search function
+- ❌ Confirmed test fails or logs error before type checks are added
+- ✅ Added input validation in `search_sweets()` for all filters
+- ✅ Ensures function returns empty list instead of crashing for invalid types
+- ✅ Confirmed all validation tests now pass
