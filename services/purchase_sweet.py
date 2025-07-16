@@ -1,51 +1,51 @@
+from exceptions.exceptions import StockError
 import sqlite3
 from database.db import Database
-from exceptions.exceptions import StockError
-
-
 
 class PurchaseSweetService:
     def __init__(self, db_name='sweetshop.db'):
         self.db = Database(db_name)
         self.conn = self.db.get_connection()
 
-    def purchase_sweet(self, sweet_id: int, quantity: int) -> bool:
+    def purchase_sweet(self, sweet_id_or_name, quantity: int) -> bool:
         """
-        Purchases a sweet by reducing its stock.
-        Returns True if purchase is successful.
+        Purchases a sweet by ID (int) or Name (str), reducing its stock.
+        Raises StockError if insufficient stock.
         """
 
-        if not isinstance(sweet_id, int) or sweet_id <= 0:
-            print(f"[purchase_sweet ERROR] Invalid sweet ID: {sweet_id}")
-            return False
-        
+        # Validate quantity
         if not isinstance(quantity, int) or quantity <= 0:
             print(f"[purchase_sweet ERROR] Invalid quantity: {quantity}")
             return False
 
         try:
-            cursor = self.conn.execute("SELECT quantity FROM sweets WHERE id = ?", (sweet_id,))
-            row = cursor.fetchone()
-
-            if not row:
-                print(f"[purchase_sweet ERROR] Sweet ID {sweet_id} not found.")
+            # Get sweet by ID
+            if isinstance(sweet_id_or_name, int):
+                cursor = self.conn.execute("SELECT id, quantity FROM sweets WHERE id = ?", (sweet_id_or_name,))
+            # Get sweet by Name
+            elif isinstance(sweet_id_or_name, str) and sweet_id_or_name.strip():
+                cursor = self.conn.execute("SELECT id, quantity FROM sweets WHERE name = ?", (sweet_id_or_name.strip(),))
+            else:
+                print(f"[purchase_sweet ERROR] Invalid sweet identifier: {sweet_id_or_name}")
                 return False
 
-            current_quantity = row[0]
+            row = cursor.fetchone()
+            if not row:
+                print(f"[purchase_sweet ERROR] Sweet not found: {sweet_id_or_name}")
+                return False
+
+            sweet_id, current_quantity = row
+
             if current_quantity < quantity:
-                raise StockError(
-                    f"Not enough stock. Available: {current_quantity}, Requested: {quantity}"
-                )
+                raise StockError(f"Not enough stock. Available: {current_quantity}, Requested: {quantity}")
 
             new_quantity = current_quantity - quantity
-
             self.conn.execute("UPDATE sweets SET quantity = ? WHERE id = ?", (new_quantity, sweet_id))
             self.conn.commit()
-
             return True
 
         except StockError:
-            raise  # Let it bubble up to the test — don't suppress it!
+            raise
 
         except Exception as e:
             print(f"[purchase_sweet ERROR] {e}")

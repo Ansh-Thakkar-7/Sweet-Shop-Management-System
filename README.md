@@ -239,3 +239,6 @@ python -m unittest discover tests
 - Added test: `test_purchase_by_name_reduces_quantity()`
 - Purpose: Allow purchasing sweet using name as first argument
 - ❌ Confirmed test fails before enhancement
+- ✅ Extended `purchase_sweet()` to support both int (ID) and str (Name)
+- ✅ Now users can purchase by name like: `purchase_sweet("Barfi", 3)`
+- ✅ Confirmed via test: `test_purchase_by_name_reduces_quantity()`
