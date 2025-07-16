@@ -13,7 +13,9 @@ class SearchSweetService:
         Supports search by name (LIKE) and category (exact match).
         """
 
-        # Validate category
+        if name is not None and not isinstance(name, str):
+            print(f"[search_sweets ERROR] Invalid name: {name}")
+            return []
         if category is not None and not isinstance(category, str):
             print(f"[search_sweets ERROR] Invalid category: {category}")
             return []
@@ -22,12 +24,12 @@ class SearchSweetService:
         params = []
 
         if name:
-            query += " AND name LIKE ?"
-            params.append(f"%{name}%")
+            query += " AND LOWER(name) LIKE ?"
+            params.append(f"%{name.lower()}%")
 
         if category:
-            query += " AND category = ?"
-            params.append(category)
+            query += " AND LOWER(category) = ?"
+            params.append(category.lower())
 
         try:
             cursor = self.conn.execute(query, tuple(params))
