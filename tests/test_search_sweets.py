@@ -26,9 +26,14 @@ class TestSearchSweets(unittest.TestCase):
             os.remove(self.test_db_name)
 
     def test_search_by_name(self):
-        """
-        Test searching for sweets by partial name.
-        """
         result = self.searcher.search_sweets(name="barfi")
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0].name, "Barfi")
+
+    def test_search_by_category(self):
+        """
+        Test that sweets can be searched by exact category.
+        """
+        result = self.searcher.search_sweets(category="Milk-Based")
+        self.assertEqual(len(result), 2)
+        self.assertTrue(all(s.category == "Milk-Based" for s in result))
