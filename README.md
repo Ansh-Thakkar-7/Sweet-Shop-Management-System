@@ -289,3 +289,9 @@ python -m unittest discover tests
 **Step 2: Add Sorting Order Support**
 - ✅ Added test: `test_sort_by_name_descending()` for reverse order
 - ✅ Updated `sort_sweets()` to support order="asc" and "desc"
+
+**Step 3: Sorting by Price (Ascending) — Red Step**
+- 🔴 Added test: `test_sort_by_price_ascending()` in `test_sort_sweets.py`
+- 🔎 Purpose: Verify that sweets are sorted by price from low to high
+- ❌ Confirmed test fails before implementing support for the "price" field in `sort_sweets()`
+

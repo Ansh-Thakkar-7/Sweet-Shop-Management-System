@@ -44,3 +44,11 @@ class TestSortSweets(unittest.TestCase):
         result = self.sorter.sort_sweets(by="name", order="desc")
         names = [sweet.name for sweet in result]
         self.assertEqual(names, ["Kaju Katli", "Gulab Jamun", "Barfi"])
+
+    def test_sort_by_price_ascending(self):
+        """
+        Test that sweets are sorted by price in ascending order.
+        """
+        result = self.sorter.sort_sweets(by="price", order="asc")
+        prices = [sweet.price for sweet in result]
+        self.assertEqual(prices, [20.0, 25.0, 30.0])
