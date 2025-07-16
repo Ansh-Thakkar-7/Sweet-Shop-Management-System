@@ -60,4 +60,14 @@ class TestDeleteSweet(unittest.TestCase):
         self.assertTrue(result1)   # First delete should succeed
         self.assertFalse(result2)  # Second delete should fail (already gone)
 
+    def test_delete_sweet_by_name_successfully(self):
+        """
+        Test that a sweet can be deleted by name.
+        """
+        sweet = Sweet(id=3020, name="Barfi", category="Milk-Based", price=20.0, quantity=10)
+        self.adder.add_sweet(sweet)
+
+        result = self.deleter.delete_sweet_by_name("Barfi")
+        self.assertTrue(result)
+
 

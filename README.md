@@ -114,3 +114,21 @@ python -m unittest discover tests
 - Added test: `test_delete_non_existing_sweet()` in `tests/test_delete_sweet.py`
 - Purpose: Ensure deleting an ID that doesn’t exist returns False without error
 - ✅ Confirmed test passes
+
+**Step 3: Edge Case – Invalid ID Type for Deletion**
+- Added test: `test_delete_sweet_with_invalid_id_types()` in `tests/test_delete_sweet.py`
+- Purpose: Ensure `delete_sweet()` handles invalid ID types (None, string, float, negative) gracefully
+- ❌ Confirmed test fails (expected) before validation
+- ✅ Updated delete_sweet() to validate ID type and value before querying DB
+- ✅ Ensures unsafe types (None, str, float, negative) are rejected early
+- ✅ Confirmed test for invalid types now passes
+
+**Step 17: Edge Case – Double Deletion**
+- Added test: `test_delete_sweet_twice_should_return_false_second_time()` in `tests/test_delete_sweet.py`
+- Purpose: Ensure deleting the same ID twice only succeeds once
+- ✅ Confirmed first delete returns True, second returns False
+
+**Step 18: Optional Feature – Delete Sweet by Name**
+- Added test: `test_delete_sweet_by_name_successfully()` in `tests/test_delete_sweet.py`
+- Purpose: Allow deletion of sweets by name (alternative to ID)
+- ❌ Confirmed test fails before method is implemented
