@@ -15,8 +15,14 @@ class SortSweetsService:
         """
 
         valid_fields = ["name", "price", "quantity", "category"]
-        if by not in valid_fields or order not in ["asc", "desc"]:
-            print(f"[sort_sweets ERROR] Invalid field or order: {by}, {order}")
+        valid_orders = ["asc", "desc"]
+
+        if not isinstance(by, str) or by not in valid_fields:
+            print(f"[sort_sweets ERROR] Invalid field: {by}")
+            return []
+
+        if not isinstance(order, str) or order not in valid_orders:
+            print(f"[sort_sweets ERROR] Invalid order: {order}")
             return []
 
         query = f"SELECT id, name, category, price, quantity FROM sweets ORDER BY {by} {order.upper()}"

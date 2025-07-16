@@ -334,3 +334,8 @@ python -m unittest discover tests
 - 🔴 Added test: `test_sort_fails_with_invalid_field_or_order()` in `test_sort_sweets.py`
 - 🔎 Purpose: Ensure sort_sweets() handles bad input for field (`by`) or sort order (`order`)
 - ❌ Confirmed test fails before input validation is added
+- ✅ Added input validation to `sort_sweets()`:
+  - Rejects invalid field (`by`) or order (`asc/desc`)
+  - Returns empty list instead of crashing
+- ✅ Confirmed edge case tests pass successfully
+
