@@ -263,3 +263,8 @@ python -m unittest discover tests
 - ✅ Confirmed behavior (or ❌ failed if not handled yet)
 - ✅ Handled non-existent sweet ID in `restock_sweet()`
 - ✅ Now returns False and logs error if the sweet is not in the database
+
+**Step 9: Add Support – Restock by Sweet Name**
+- Added test: `test_restock_by_name_increases_quantity()`
+- Purpose: Allow restocking by sweet name (str input)
+- ❌ Confirmed test fails before implementation

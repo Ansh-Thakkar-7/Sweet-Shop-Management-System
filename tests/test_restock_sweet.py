@@ -43,8 +43,21 @@ class TestRestockSweet(unittest.TestCase):
         self.assertFalse(self.restocker.restock_sweet(8001, 2.5))
 
     def test_restock_fails_for_nonexistent_sweet(self):
-    """
-    Test that restocking fails if the sweet ID does not exist in the database.
-    """
-    result = self.restocker.restock_sweet(9999, 10)  # ID 9999 does not exist
-    self.assertFalse(result)
+        """
+        Test that restocking fails if the sweet ID does not exist in the database.
+        """
+        result = self.restocker.restock_sweet(9999, 10)  # ID 9999 does not exist
+        self.assertFalse(result)
+
+
+    def test_restock_by_name_increases_quantity(self):
+        """
+        Test that restocking a sweet by name increases quantity.
+        Ladoo has 5 → should become 12 after restocking 7
+        """
+        result = self.restocker.restock_sweet("Ladoo", 7)
+        self.assertTrue(result)
+
+        cursor = self.restocker.conn.execute("SELECT quantity FROM sweets WHERE name = ?", ("Ladoo",))
+        quantity = cursor.fetchone()[0]
+        self.assertEqual(quantity, 12)
