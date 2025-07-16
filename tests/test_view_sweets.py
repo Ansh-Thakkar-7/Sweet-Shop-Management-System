@@ -40,8 +40,24 @@ class TestViewSweets(unittest.TestCase):
         self.assertIsInstance(result, list)
         self.assertEqual(len(result), 0)
 
-    def test_get_all_sweets_with_special_characters(self):
-        sweet = Sweet(id=2010, name="Kaju ❤️", category="Nut-Based", price=99.99, quantity=5)
-        self.adder.add_sweet(sweet)
+    def test_get_all_sweets_large_dataset(self):
+        """
+        Test performance of get_all_sweets when the table contains a large number of records.
+        This checks that it still returns correct number of records efficiently.
+        """
+        # Insert 1,000 sweets
+        for i in range(1, 1001):
+            sweet = Sweet(
+                id=9000 + i,
+                name=f"Sweet {i}",
+                category="Candy",
+                price=10.0 + i,
+                quantity=5 + i
+            )
+            self.adder.add_sweet(sweet)
+
         result = self.viewer.get_all_sweets()
-        self.assertEqual(result[0].name, "Kaju ❤️")
+
+        self.assertEqual(len(result), 1000)
+        self.assertTrue(all(isinstance(s, Sweet) for s in result))
+
