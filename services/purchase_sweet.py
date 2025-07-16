@@ -1,5 +1,7 @@
 import sqlite3
 from database.db import Database
+from exceptions.exceptions import StockError
+
 
 
 class PurchaseSweetService:
@@ -31,8 +33,9 @@ class PurchaseSweetService:
 
             current_quantity = row[0]
             if current_quantity < quantity:
-                print(f"[purchase_sweet ERROR] Not enough stock. Available: {current_quantity}, Requested: {quantity}")
-                return False
+                raise StockError(
+                    f"Not enough stock. Available: {current_quantity}, Requested: {quantity}"
+                )
 
             new_quantity = current_quantity - quantity
 
@@ -40,6 +43,9 @@ class PurchaseSweetService:
             self.conn.commit()
 
             return True
+
+        except StockError:
+            raise  # Let it bubble up to the test — don't suppress it!
 
         except Exception as e:
             print(f"[purchase_sweet ERROR] {e}")
