@@ -56,3 +56,5 @@ python -m unittest discover tests
 - Purpose: Ensure sweet cannot be added if price or quantity is not a number
 - Behavior: `add_sweet()` should return `False` if price or quantity is non-numeric
 - Confirmed test fails before implementation
+- ✅ Updated `add_sweet()` to validate that price is int/float and quantity is int
+- ✅ Confirmed non-numeric inputs are rejected and test passes
