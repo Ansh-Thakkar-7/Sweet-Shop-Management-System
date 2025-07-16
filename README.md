@@ -47,3 +47,6 @@ python -m unittest discover tests
   - Empty category
   - Zero or negative quantity
 - Confirmed test fails before implementation
+- ✅ Updated `add_sweet()` to validate non-empty name and category, and quantity > 0
+- ✅ Confirmed all invalid inputs are rejected and tests pass (TDD Green)
+
