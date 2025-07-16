@@ -74,3 +74,14 @@ class TestPurchaseSweet(unittest.TestCase):
         self.assertFalse(self.purchaser.purchase_sweet(7001, -1))
         self.assertFalse(self.purchaser.purchase_sweet(7001, 0))  # 0 is invalid
 
+
+    def test_purchase_by_name_reduces_quantity(self):
+        """
+        Test that purchasing a sweet by name (string input) reduces quantity.
+        """
+        result = self.purchaser.purchase_sweet("Kalakand", 2)
+        self.assertTrue(result)
+
+        sweets = self.purchaser.conn.execute("SELECT quantity FROM sweets WHERE name = ?", ("Kalakand",))
+        quantity = sweets.fetchone()[0]
+        self.assertEqual(quantity, 8) 

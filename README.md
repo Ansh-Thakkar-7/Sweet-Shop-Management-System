@@ -230,4 +230,12 @@ python -m unittest discover tests
 - ✅ Ensures quantity must be a positive integer (not string, None, float, negative, or 0)
 - ✅ Confirmed all validation tests pass
 
+- ✅ Introduced custom exception: `StockError`
+- ✅ Updated `purchase_sweet()` to raise exception if stock is insufficient
+- ✅ Updated test to expect exception using `with self.assertRaises(StockError)`
 
+
+**Step 5: Extend purchase_sweet – Support Name as Input**
+- Added test: `test_purchase_by_name_reduces_quantity()`
+- Purpose: Allow purchasing sweet using name as first argument
+- ❌ Confirmed test fails before enhancement
