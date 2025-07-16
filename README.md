@@ -282,3 +282,10 @@ python -m unittest discover tests
 - Added test: `test_sort_by_name_ascending()` in `test_sort_sweets.py`
 - Purpose: Sort sweets by name alphabetically (A-Z)
 - ❌ Confirmed test fails before implementing sorting logic
+- ✅ Implemented initial `sort_sweets()` method in `SortSweetsService`
+- ✅ Supports sorting by `name` in ascending order
+- ✅ Confirmed test passes for alphabetical sorting
+
+**Step 2: Add Sorting Order Support**
+- ✅ Added test: `test_sort_by_name_descending()` for reverse order
+- ✅ Updated `sort_sweets()` to support order="asc" and "desc"

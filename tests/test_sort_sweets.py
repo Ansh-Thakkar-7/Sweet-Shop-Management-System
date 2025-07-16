@@ -35,3 +35,12 @@ class TestSortSweets(unittest.TestCase):
         result = self.sorter.sort_sweets(by="name", order="asc")
         names = [sweet.name for sweet in result]
         self.assertEqual(names, ["Barfi", "Gulab Jamun", "Kaju Katli"])
+
+
+    def test_sort_by_name_descending(self):
+        """
+        Test that sweets are sorted by name in descending order (Z-A).
+        """
+        result = self.sorter.sort_sweets(by="name", order="desc")
+        names = [sweet.name for sweet in result]
+        self.assertEqual(names, ["Kaju Katli", "Gulab Jamun", "Barfi"])

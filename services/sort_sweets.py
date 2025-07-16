@@ -9,20 +9,26 @@ class SortSweetsService:
 
     def sort_sweets(self, by: str, order: str = "asc"):
         """
-        Sort sweets by the specified field (e.g., name).
+        Sort sweets by the specified field and order.
+        Supported fields: name
+        Supported order: asc, desc
         """
-        # Only minimal logic for this test — sorting by name asc
+
         if by != "name":
             print(f"[sort_sweets ERROR] Unsupported sort field: {by}")
             return []
 
-        query = "SELECT id, name, category, price, quantity FROM sweets ORDER BY name ASC"
+        if order not in ["asc", "desc"]:
+            print(f"[sort_sweets ERROR] Invalid order: {order}")
+            return []
+
+        query = f"SELECT id, name, category, price, quantity FROM sweets ORDER BY name {order.upper()}"
 
         try:
             cursor = self.conn.execute(query)
             rows = cursor.fetchall()
-            sweets = [Sweet(*row) for row in rows]
-            return sweets
+            return [Sweet(*row) for row in rows]
         except Exception as e:
             print(f"[sort_sweets ERROR] {e}")
             return []
+
