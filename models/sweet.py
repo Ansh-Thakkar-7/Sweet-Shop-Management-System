@@ -7,3 +7,13 @@ class Sweet:
     category: str
     price: float
     quantity: int
+
+
+VALID_CATEGORIES = [
+    "Chocolate",
+    "Candy",
+    "Pastry",
+    "Milk-Based",
+    "Nut-Based",
+    "Vegetable-Based"
+]

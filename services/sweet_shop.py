@@ -1,6 +1,7 @@
 import sqlite3
 from database.db import Database
-from models.sweet import Sweet
+from models import sweet
+from models.sweet import Sweet, VALID_CATEGORIES
 
 
 class SweetShop:
@@ -23,8 +24,8 @@ class SweetShop:
             print(f"[add_sweet ERROR] Name cannot be empty")
             return False
 
-        if not sweet.category.strip():
-            print(f"[add_sweet ERROR] Category cannot be empty")
+        if sweet.category.strip() not in VALID_CATEGORIES:
+            print(f"[add_sweet ERROR] Invalid category: {sweet.category}")
             return False
         
         if not isinstance(sweet.price, (int, float)):
