@@ -4,7 +4,7 @@ from models import sweet
 from models.sweet import Sweet, VALID_CATEGORIES
 
 
-class SweetShop:
+class AddSweetService:
     """
     Service class to handle operations related to the sweet inventory.
     """

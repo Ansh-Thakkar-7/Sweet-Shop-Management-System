@@ -73,3 +73,10 @@ python -m unittest discover tests
 - Purpose: Ensure valid data passes all checks and is inserted into DB
 - Behavior: `add_sweet()` should return True for valid sweet
 - ✅ Confirmed test passes
+
+
+## ✅ Refactor: Split Add Sweet Feature
+
+- Moved add logic to `services/add_sweet.py` as `AddSweetService`
+- Moved add-related tests to `tests/test_add_sweet.py`
+- Follows modular service-based architecture for better maintainability

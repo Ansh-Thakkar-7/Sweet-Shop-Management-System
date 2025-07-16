@@ -1,10 +1,10 @@
 import unittest
-from services.sweet_shop import SweetShop
+from services.add_sweet import AddSweetService
 from models.sweet import Sweet
 import os
 import time
 
-class TestSweetShop(unittest.TestCase):
+class TestAddSweet(unittest.TestCase):
     """
     Test suite for the SweetShop service class.
     All test cases follow TDD principles and validate core business logic.
@@ -12,7 +12,7 @@ class TestSweetShop(unittest.TestCase):
 
     def setUp(self):
         self.test_db_name = 'test_sweetshop.db'
-        self.shop = SweetShop(db_name=self.test_db_name)
+        self.shop = AddSweetService(db_name=self.test_db_name)
 
     def tearDown(self):
         if hasattr(self.shop, 'db'):
