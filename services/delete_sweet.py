@@ -12,6 +12,11 @@ class DeleteSweetService:
         Deletes a sweet with the given ID from the database.
         Returns True if deletion was successful (row existed), False otherwise.
         """
+
+        if not isinstance(sweet_id, int) or sweet_id <= 0:
+            print(f"[delete_sweet ERROR] Invalid ID: {sweet_id}")
+            return False
+        
         query = "DELETE FROM sweets WHERE id = ?"
 
         try:
