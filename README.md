@@ -267,4 +267,6 @@ python -m unittest discover tests
 **Step 9: Add Support – Restock by Sweet Name**
 - Added test: `test_restock_by_name_increases_quantity()`
 - Purpose: Allow restocking by sweet name (str input)
-- ❌ Confirmed test fails before implementation
+- ❌ Confirmed test fails before 
+- ✅ Enhanced `restock_sweet()` to support restocking by name (str)
+- ✅ Now works with either sweet ID or name input
