@@ -58,3 +58,9 @@ python -m unittest discover tests
 - Confirmed test fails before implementation
 - ✅ Updated `add_sweet()` to validate that price is int/float and quantity is int
 - ✅ Confirmed non-numeric inputs are rejected and test passes
+
+**Step 8: Edge Case – Invalid Category**
+- Added test: `test_add_sweet_with_invalid_category` in `tests/test_sweet_shop.py`
+- Purpose: Only allow predefined sweet categories (e.g., Chocolate, Candy, Pastry, etc.)
+- Behavior: `add_sweet()` should return `False` if category is outside the allowed list
+- Confirmed test fails before implementation

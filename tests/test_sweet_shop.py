@@ -81,3 +81,13 @@ class TestSweetShop(unittest.TestCase):
         for sweet in invalid_sweets:
             result = self.shop.add_sweet(sweet)
             self.assertFalse(result)
+
+
+
+    def test_add_sweet_with_invalid_category(self):
+        """
+        Test that a sweet with a category not in the allowed list is rejected.
+        """
+        sweet = Sweet(id=5001, name="Weird Sweet", category="Ice Cream", price=15.0, quantity=5)
+        result = self.shop.add_sweet(sweet)
+        self.assertFalse(result)
