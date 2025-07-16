@@ -36,3 +36,14 @@ class TestDeleteSweet(unittest.TestCase):
         result = self.deleter.delete_sweet(9999)  # ID that doesn't exist
         self.assertFalse(result)
 
+    def test_delete_sweet_with_invalid_id_types(self):
+        """
+        Test that delete_sweet handles invalid ID types gracefully and returns False.
+        """
+        invalid_ids = [None, "abc", 12.5, -10]
+
+        for invalid_id in invalid_ids:
+            with self.subTest(id=invalid_id):
+                result = self.deleter.delete_sweet(invalid_id)
+                self.assertFalse(result)
+
