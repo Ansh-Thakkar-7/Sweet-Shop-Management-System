@@ -14,6 +14,7 @@ class TestViewSweets(unittest.TestCase):
 
     def tearDown(self):
         self.adder.db.close_connection()
+        self.viewer.db.close_connection()
         if os.path.exists(self.test_db_name):
             os.remove(self.test_db_name)
 
@@ -29,3 +30,18 @@ class TestViewSweets(unittest.TestCase):
         self.assertIsInstance(result, list)
         self.assertEqual(len(result), 2)
         self.assertTrue(all(isinstance(s, Sweet) for s in result))
+
+
+    def test_get_all_sweets_empty_table(self):
+        """
+        Test that get_all_sweets returns an empty list when no sweets exist.
+        """
+        result = self.viewer.get_all_sweets()
+        self.assertIsInstance(result, list)
+        self.assertEqual(len(result), 0)
+
+    def test_get_all_sweets_with_special_characters(self):
+        sweet = Sweet(id=2010, name="Kaju ❤️", category="Nut-Based", price=99.99, quantity=5)
+        self.adder.add_sweet(sweet)
+        result = self.viewer.get_all_sweets()
+        self.assertEqual(result[0].name, "Kaju ❤️")
