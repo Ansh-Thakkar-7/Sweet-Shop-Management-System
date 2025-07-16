@@ -58,3 +58,17 @@ class TestSearchSweets(unittest.TestCase):
         for sweet in result:
             self.assertGreaterEqual(sweet.price, 10.0)
             self.assertLessEqual(sweet.price, 30.0)
+
+    def test_invalid_search_inputs(self):
+        """
+        Test that invalid search filters return an empty list and do not crash.
+        """
+        result1 = self.searcher.search_sweets(name=123)  # name must be str
+        result2 = self.searcher.search_sweets(category=[])  # category must be str
+        result3 = self.searcher.search_sweets(min_price="cheap")  # min_price must be float/int
+        result4 = self.searcher.search_sweets(max_price="expensive")  # max_price must be float/int
+
+        self.assertEqual(result1, [])
+        self.assertEqual(result2, [])
+        self.assertEqual(result3, [])
+        self.assertEqual(result4, [])
