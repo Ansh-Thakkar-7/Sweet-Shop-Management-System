@@ -306,4 +306,7 @@ python -m unittest discover tests
 - ✅ Reused flexible SQL logic in `sort_sweets()` with support for any valid field + order
 - ✅ Confirmed test passes: high-to-low price sorting works as expected
 
-
+**Step 5: Sorting by Quantity (Ascending) — Red Step**
+- 🔴 Added test: `test_sort_by_quantity_ascending()` in `test_sort_sweets.py`
+- 🔎 Purpose: Sort sweets by available stock (from low to high)
+- ❌ Confirmed test fails if "quantity" not yet handled by `sort_sweets()`
