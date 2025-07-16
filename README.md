@@ -203,3 +203,6 @@ python -m unittest discover tests
 - Added test: `test_purchase_reduces_quantity()` in `tests/test_purchase_sweet.py`
 - Purpose: Ensure that when a valid purchase is made, quantity decreases correctly
 - ❌ Confirmed test fails before method is implemented
+- ✅ Implemented `purchase_sweet(sweet_id, quantity)` in `PurchaseSweetService`
+- ✅ Reduces quantity of a sweet if stock is sufficient
+- ✅ Confirmed test passes for quantity reduction logic
