@@ -261,3 +261,5 @@ python -m unittest discover tests
 - Added test: `test_restock_fails_for_nonexistent_sweet()`
 - Purpose: Ensure restocking fails if sweet ID is not in database
 - ✅ Confirmed behavior (or ❌ failed if not handled yet)
+- ✅ Handled non-existent sweet ID in `restock_sweet()`
+- ✅ Now returns False and logs error if the sweet is not in the database

@@ -20,6 +20,7 @@ class RestockSweetService:
         row = cursor.fetchone()
 
         if not row:
+            print(f"[restock_sweet ERROR] Sweet with ID {sweet_id} not found.")
             return False  # sweet not found
 
         current_quantity = row[0]
