@@ -226,4 +226,8 @@ python -m unittest discover tests
 - Added test: `test_purchase_fails_with_invalid_quantity()` in `tests/test_purchase_sweet.py`
 - Purpose: Ensure quantity must be a positive integer
 - ❌ Confirmed test fails before validation is implemented
+- ✅ Added validation in `purchase_sweet()` to reject invalid quantities
+- ✅ Ensures quantity must be a positive integer (not string, None, float, negative, or 0)
+- ✅ Confirmed all validation tests pass
+
 

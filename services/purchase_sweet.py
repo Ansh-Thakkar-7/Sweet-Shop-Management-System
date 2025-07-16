@@ -16,6 +16,10 @@ class PurchaseSweetService:
         if not isinstance(sweet_id, int) or sweet_id <= 0:
             print(f"[purchase_sweet ERROR] Invalid sweet ID: {sweet_id}")
             return False
+        
+        if not isinstance(quantity, int) or quantity <= 0:
+            print(f"[purchase_sweet ERROR] Invalid quantity: {quantity}")
+            return False
 
         try:
             cursor = self.conn.execute("SELECT quantity FROM sweets WHERE id = ?", (sweet_id,))
