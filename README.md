@@ -64,3 +64,12 @@ python -m unittest discover tests
 - Purpose: Only allow predefined sweet categories (e.g., Chocolate, Candy, Pastry, etc.)
 - Behavior: `add_sweet()` should return `False` if category is outside the allowed list
 - Confirmed test fails before implementation
+- ✅ Defined VALID_CATEGORIES list in models/sweet.py
+- ✅ Updated add_sweet() to validate category against predefined list
+- ✅ Confirmed invalid category test now passes
+
+**Step 9: Edge Case – Valid Sweet Is Successfully Added**
+- Added test: `test_add_valid_sweet_passes_all_validations` in `tests/test_sweet_shop.py`
+- Purpose: Ensure valid data passes all checks and is inserted into DB
+- Behavior: `add_sweet()` should return True for valid sweet
+- ✅ Confirmed test passes

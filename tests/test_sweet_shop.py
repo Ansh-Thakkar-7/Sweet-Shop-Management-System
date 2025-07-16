@@ -91,3 +91,18 @@ class TestSweetShop(unittest.TestCase):
         sweet = Sweet(id=5001, name="Weird Sweet", category="Ice Cream", price=15.0, quantity=5)
         result = self.shop.add_sweet(sweet)
         self.assertFalse(result)
+
+
+    def test_add_valid_sweet_passes_all_validations(self):
+        """
+        Test that a sweet with valid name, category, price, and quantity is successfully added.
+        """
+        sweet = Sweet(
+            id=6001,
+            name="Chocolate Bar",
+            category="Chocolate",  
+            price=25.0,
+            quantity=10
+        )
+        result = self.shop.add_sweet(sweet)
+        self.assertTrue(result)
