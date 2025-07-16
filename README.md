@@ -132,3 +132,6 @@ python -m unittest discover tests
 - Added test: `test_delete_sweet_by_name_successfully()` in `tests/test_delete_sweet.py`
 - Purpose: Allow deletion of sweets by name (alternative to ID)
 - ❌ Confirmed test fails before method is implemented
+- ✅ Implemented `delete_sweet_by_name()` in `DeleteSweetService`
+- ✅ Supports deletion based on sweet name (used in admin/bulk operations)
+- ✅ Confirmed test passes for deleting sweet by name

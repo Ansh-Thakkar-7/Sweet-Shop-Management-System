@@ -31,3 +31,25 @@ class DeleteSweetService:
             print(f"[delete_sweet ERROR] {e}")
             return False
 
+    def delete_sweet_by_name(self, name: str) -> bool:
+        """
+        Deletes a sweet from the database by its name.
+        Returns True if deletion was successful, False if no match.
+        """
+        if not isinstance(name, str) or not name.strip():
+            print(f"[delete_sweet_by_name ERROR] Invalid name: {name}")
+            return False
+
+        query = "DELETE FROM sweets WHERE name = ?"
+
+        try:
+            with self.conn:
+                cursor = self.conn.execute(query, (name.strip(),))
+                if cursor.rowcount == 0:
+                    print(f"[delete_sweet_by_name INFO] No sweet found with name '{name}'")
+                    return False
+                return True
+
+        except Exception as e:
+            print(f"[delete_sweet_by_name ERROR] {e}")
+            return False
