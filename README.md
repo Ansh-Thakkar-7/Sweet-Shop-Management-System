@@ -256,3 +256,8 @@ python -m unittest discover tests
 - ❌ Confirmed test fails before validation
 - ✅ Added input validation to `restock_sweet()` to ensure quantity is a positive integer
 - ✅ Confirmed test passes when quantity is None, string, zero, float, or negative
+
+**Step 8: Validation – Restock Non-existent Sweet**
+- Added test: `test_restock_fails_for_nonexistent_sweet()`
+- Purpose: Ensure restocking fails if sweet ID is not in database
+- ✅ Confirmed behavior (or ❌ failed if not handled yet)

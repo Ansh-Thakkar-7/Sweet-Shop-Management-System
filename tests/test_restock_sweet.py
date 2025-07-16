@@ -41,3 +41,10 @@ class TestRestockSweet(unittest.TestCase):
         self.assertFalse(self.restocker.restock_sweet(8001, 0))
         self.assertFalse(self.restocker.restock_sweet(8001, -5))
         self.assertFalse(self.restocker.restock_sweet(8001, 2.5))
+
+    def test_restock_fails_for_nonexistent_sweet(self):
+    """
+    Test that restocking fails if the sweet ID does not exist in the database.
+    """
+    result = self.restocker.restock_sweet(9999, 10)  # ID 9999 does not exist
+    self.assertFalse(result)
