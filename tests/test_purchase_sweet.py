@@ -86,4 +86,6 @@ class TestPurchaseSweet(unittest.TestCase):
         quantity = sweets.fetchone()[0]
         self.assertEqual(quantity, 8) 
 
+    
+
 
