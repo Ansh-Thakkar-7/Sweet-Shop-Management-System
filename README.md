@@ -30,3 +30,20 @@
 **Step 4: Test Execution**
 ```bash
 python -m unittest discover tests
+```
+**Step 5: Edge Case – Negative Price**
+- Added test: `test_add_sweet_with_negative_price` in `tests/test_sweet_shop.py`
+- Purpose: Ensure that a sweet with a negative price is not allowed
+- Behavior: `add_sweet()` should return `False` if price < 0
+- Confirmed test fails before implementation
+- ✅ Updated `add_sweet()` to include price validation
+- ✅ Test now passes after validation is added
+
+**Step 6: Edge Case – Empty or Invalid Fields**
+- Added test: `test_add_sweet_with_missing_or_invalid_fields` in `tests/test_sweet_shop.py`
+- Purpose: Ensure sweet has valid name, category, and quantity > 0
+- Behavior: `add_sweet()` should return `False` for:
+  - Empty name
+  - Empty category
+  - Zero or negative quantity
+- Confirmed test fails before implementation

@@ -48,3 +48,23 @@ class TestSweetShop(unittest.TestCase):
         sweet = Sweet(id=3001, name="Bad Sweet", category="Candy", price=-10.0, quantity=5)
         result = self.shop.add_sweet(sweet)
         self.assertFalse(result)
+
+        
+    def test_add_sweet_with_missing_or_invalid_fields(self):
+        """
+        Test that adding a sweet with missing or invalid fields is not allowed.
+        Includes:
+        - Empty name
+        - Empty category
+        - Zero or negative quantity
+        """
+        invalid_sweets = [
+            Sweet(id=3003, name="   ", category="Candy", price=10.0, quantity=5),     # Empty name
+            Sweet(id=3004, name="Valid", category=" ", price=10.0, quantity=5),       # Empty category
+            Sweet(id=3005, name="Valid", category="Candy", price=10.0, quantity=0),   # Zero quantity
+            Sweet(id=3006, name="Valid", category="Candy", price=10.0, quantity=-3),  # Negative quantity
+        ]
+
+        for sweet in invalid_sweets:
+            result = self.shop.add_sweet(sweet)
+            self.assertFalse(result)
