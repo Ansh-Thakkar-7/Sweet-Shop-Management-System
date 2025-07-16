@@ -1,6 +1,82 @@
 # Sweet Shop Management System
 
+
+## 🚀 Getting Started
+
+Follow these steps to set up and run the Sweet Shop Management System on your local machine.
+
+---
 ## ✅ Setup
+### 🔁 1. Clone the Repository
+
+
+```bash
+git clone https://github.com/your-username/sweetshop.git
+cd sweetshop
+```
+### 🛠️ 2. Create and Activate Virtual Environment
+It is recommended to use a virtual environment to manage dependencies:
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+### 📦 3. Install Required Dependencies
+Install all the required packages using requirements.txt:
+```bash
+pip install -r requirements.txt
+```
+### ✅ 4. Run All Unit Tests
+We follow Test-Driven Development (TDD). To run all the tests and ensure everything is working:
+```bash
+python -m unittest discover tests
+```
+### 🌐 5. Run the Streamlit Frontend UI
+Launch the web interface using Streamlit:
+```bash
+streamlit run sweetshop_ui.py
+```
+### Once it runs, open your browser and go to:
+```bash
+http://localhost:8501
+```
+## 📂 Project Structure
+
+
+```bash
+sweetshop/
+├── database/
+│ └── db.py # SQLite DB setup and connection handler
+│
+├── models/
+│ └── sweet.py # Sweet data model using @dataclass
+│
+├── services/
+│ ├── add_sweet.py # Logic for adding a sweet (with validation)
+│ ├── delete_sweet.py # Delete sweet by ID or name
+│ ├── purchase_sweet.py # Handle purchasing logic and stock updates
+│ ├── restock_sweet.py # Logic to restock sweets
+│ ├── search_sweets.py # Filter/search sweets by name, category, price
+│ ├── sort_sweets.py # Sorting sweets by column
+│ └── view_sweets.py # Retrieve all sweets from DB
+│
+├── tests/
+│ ├── test_add_sweet.py # TDD tests for adding sweets
+│ ├── test_delete_sweet.py # Tests for deletion logic
+│ ├── test_purchase_sweet.py # Tests for purchasing logic
+│ ├── test_restock_sweet.py # Tests for restocking sweets
+│ ├── test_search_sweets.py # Tests for search functionality
+│ ├── test_sort_sweets.py # Tests for sorting sweets
+│ └── test_view_sweets.py # Tests for viewing inventory
+│
+├── exceptions/
+│ └── exceptions.py # Custom exceptions (e.g., StockError)
+│
+├── sweetshop_ui.py # 🌐 Streamlit frontend file
+├── requirements.txt # List of dependencies
+├── README.md # 📄 Project documentation
+└── sweetshop.db # (Auto-created) SQLite database file
+```
+
 
 ### 1. Data Model
 - `models/sweet.py`: Defines the `Sweet` class using `@dataclass`.
@@ -341,10 +417,37 @@ python -m unittest discover tests
 
 
 
-### 🔹 Add Streamlit Frontend**
-- ✅ Created `sweetshop_ui.py` using Streamlit
-- ✅ Features:
-  - Add sweet form (ID, name, category, price, quantity)
-  - View all sweets in a table
-- ✅ Integrated with service layer (no duplicate code)
-- ✅ Launched via: `streamlit run sweetshop_ui.py`
+### 🔹 Streamlit UI Summary
+
+We built a complete web-based frontend using **Streamlit** to manage sweets interactively.  
+Users can **add, view, delete, search, purchase**, and **restock** sweets through an intuitive form-driven interface.  
+All backend validations (ID checks, stock limits, type safety) are reflected in the UI with clear feedback.  
+The interface supports operations using both sweet **ID and name**, improving usability.  
+Real-time updates are handled with `st.rerun()` for smooth workflows.  
+The frontend was co-developed with the help of **AI (ChatGPT)** to accelerate design and modularity.  
+This UI simplifies inventory tasks for vendors or admins, even without programming knowledge.
+
+
+---
+
+## 📚 References & Acknowledgments
+
+This project was developed with the help of various tools, learning resources, and communities:
+
+### 🤖 AI Assistance
+- Portions of the Streamlit UI and validation logic were implemented with help from **OpenAI ChatGPT**
+- AI guidance accelerated development, reduced bugs, and ensured better modularity
+
+### 📖 Blogs & Documentation
+- [Streamlit Documentation](https://docs.streamlit.io/)
+- [SQLite Official Docs](https://www.sqlite.org/docs.html)
+- [Python Dataclasses Guide – RealPython](https://realpython.com/python-data-classes/)
+- [Test-Driven Development in Python – freeCodeCamp](https://www.freecodecamp.org/news/an-introduction-to-testing-in-python/)
+
+### 🎥 YouTube Resources
+- [Streamlit Crash Course – Traversy Media](https://www.youtube.com/watch?v=JwSS70SZdyM)
+- [TDD with Python – Tech With Tim](https://www.youtube.com/watch?v=1Lfv5tUGsn8)
+
+---
+
+Thanks to the open-source community and educators for making knowledge accessible and project-building faster and more enjoyable 🚀
