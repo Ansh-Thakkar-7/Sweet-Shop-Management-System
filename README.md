@@ -1,4 +1,135 @@
 # Sweet Shop Management System
+## Interactive Frontend Demo
+
+Explore the user interface of our application, built with Streamlit. This short video highlights the key features and how users can interact with the frontend.
+
+
+## SweetShop Test Automation Report
+
+This section demonstrates the comprehensive test automation report generated using **Allure Report** for the `SweetShop` application. Our test suite covers various functionalities, ensuring the robustness and reliability of the application.
+
+## Report Demostration
+
+Below is a demonstration of the Allure Report interface
+
+---
+## Test Suite Overview
+
+We have a total of **42 test cases** executed across **7 key functionalities (actions)** of the SweetShop application.
+
+### Key Functionalities Covered:
+
+Each of these functionalities is thoroughly tested to ensure correct behavior:
+
+* **Add Sweet:** Validates the process of adding new sweet items to the inventory.
+* **Delete Sweet:** Confirms the successful removal of sweet items.
+* **Purchase Sweet:** Tests the end-to-end flow of purchasing sweets, including inventory updates and payment processing.
+* **Restock Sweet:** Verifies the process of replenishing sweet stock.
+* **Search Sweets:** Ensures the search functionality accurately filters and displays sweet items.
+* **Sort Sweets:** Checks if sweets can be correctly sorted based on various criteria (e.g., price, name).
+* **View Sweets:** Confirms that all available sweet items are displayed correctly.
+
+# ✅ Test Report – Sweet Shop Management System
+
+This document outlines all test cases written for the Sweet Shop project, developed using **Python's unittest framework** and structured using **TDD (Test-Driven Development)**.
+
+> 🔍 Every feature follows the cycle:  
+> `Write Failing Test → Implement Minimal Logic → Make Test Pass → Refactor`
+
+---
+
+## 🧪 Overall Stats
+
+| Metric                 | Value         |
+|------------------------|---------------|
+| Total Test Modules     | 7             |
+| Total Test Cases       | 35+           |
+| Testing Framework      | `unittest`    |
+| Database Used in Test  | SQLite (`test_sweetshop.db`) |
+| Isolation              | ✔️ Yes (per test DB) |
+| Automated Reports      | XML + HTML (via `junit-viewer`) |
+
+---
+
+## 📂 Test Modules Breakdown
+
+### 1. `test_add_sweet.py` – Add New Sweet 🍬
+
+| Test Case                                | Status | Description                                                                 |
+|------------------------------------------|--------|-----------------------------------------------------------------------------|
+| `test_add_sweet`                         | ✅ Pass | Adds a valid sweet (Happy Path)                                             |
+| `test_add_duplicate_sweet_id`           | ✅ Pass | Ensures duplicate IDs are rejected                                         |
+| `test_add_sweet_with_negative_price`     | ✅ Pass | Fails if price < 0                                                          |
+| `test_add_sweet_with_invalid_category`   | ✅ Pass | Fails if category not in allowed list                                      |
+| `test_add_sweet_with_empty_fields`       | ✅ Pass | Empty name/category triggers failure                                       |
+| `test_add_sweet_with_non_int_quantity`   | ✅ Pass | Rejects non-integer quantities                                             |
+| `test_add_duplicate_name_category_combo` | ✅ Pass | Disallows same name-category even with new ID                              |
+
+---
+
+### 2. `test_delete_sweet.py` – Delete Sweet ❌
+
+| Test Case                        | Status | Description                                      |
+|----------------------------------|--------|--------------------------------------------------|
+| `test_delete_by_id`             | ✅ Pass | Deletes item by ID                              |
+| `test_delete_by_name`           | ✅ Pass | Deletes by name (alternative)                   |
+| `test_delete_nonexistent_id`    | ✅ Pass | Graceful fail when item not found               |
+| `test_invalid_id_or_name_input` | ✅ Pass | Validates types (e.g., string, float, empty)    |
+
+---
+
+### 3. `test_view_sweets.py` – View Inventory 📋
+
+| Test Case                      | Status | Description                                     |
+|--------------------------------|--------|-------------------------------------------------|
+| `test_get_all_sweets`         | ✅ Pass | Returns full list of `Sweet` objects            |
+| `test_empty_inventory`        | ✅ Pass | Returns empty list when no sweets exist         |
+
+---
+
+### 4. `test_search_sweets.py` – Search Functionality 🔍
+
+| Test Case                          | Status | Description                                          |
+|------------------------------------|--------|------------------------------------------------------|
+| `test_search_by_name`             | ✅ Pass | Matches name substrings                             |
+| `test_search_by_category`         | ✅ Pass | Filters by category                                 |
+| `test_search_by_price_range`      | ✅ Pass | Min/max price filter                                |
+| `test_search_combined_filters`    | ✅ Pass | Name + category + price filters                     |
+| `test_search_case_insensitive`    | ✅ Pass | `BaRfI` matches `barfi`                             |
+| `test_invalid_input`              | ✅ Pass | Handles wrong types for filters gracefully          |
+
+---
+
+### 5. `test_sort_sweets.py` – Sort Sweets 🔢
+
+| Test Case                  | Status | Description                                |
+|----------------------------|--------|--------------------------------------------|
+| `test_sort_by_name`       | ✅ Pass | Sorts alphabetically                       |
+| `test_sort_by_price_desc` | ✅ Pass | Descending price sort                      |
+| `test_invalid_sort_field` | ✅ Pass | Returns empty list for unsupported fields  |
+
+---
+
+### 6. `test_purchase_sweet.py` – Purchase Inventory 📦
+
+| Test Case                             | Status | Description                                      |
+|---------------------------------------|--------|--------------------------------------------------|
+| `test_purchase_reduces_quantity`     | ✅ Pass | Successful stock reduction                       |
+| `test_purchase_raises_stock_error`   | ✅ Pass | Raises custom `StockError` if not enough stock   |
+| `test_invalid_sweet_id_or_quantity`  | ✅ Pass | Validates invalid types                          |
+| `test_purchase_by_name`              | ✅ Pass | Also works using sweet name                      |
+
+---
+
+### 7. `test_restock_sweet.py` – Restock Inventory ♻️
+
+| Test Case                             | Status | Description                                   |
+|---------------------------------------|--------|-----------------------------------------------|
+| `test_restock_increases_quantity`    | ✅ Pass | Adds stock to existing item                   |
+| `test_invalid_quantity_or_identifier`| ✅ Pass | Handles bad input types                       |
+| `test_restock_by_name`               | ✅ Pass | Supports restocking via name                  |
+
+---
 
 
 ## 🚀 Getting Started
