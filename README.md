@@ -4,6 +4,10 @@
 Explore the user interface of our application, built with Streamlit. This short video highlights the key features and how users can interact with the frontend.
 
 
+https://github.com/user-attachments/assets/8c77d586-5bd3-487b-886c-6094334badfa
+
+
+
 ## SweetShop Test Automation Report
 
 This section demonstrates the comprehensive test automation report generated using **Allure Report** for the `SweetShop` application. Our test suite covers various functionalities, ensuring the robustness and reliability of the application.
@@ -11,6 +15,10 @@ This section demonstrates the comprehensive test automation report generated usi
 ## Report Demostration
 
 Below is a demonstration of the Allure Report interface
+
+
+https://github.com/user-attachments/assets/b5ba3825-08f5-4cab-bbcd-15a4620c2c8f
+
 
 ---
 ## Test Suite Overview
